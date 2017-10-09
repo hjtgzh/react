@@ -1,0 +1,41 @@
+{
+  "name": "new-react",
+  "version": "1.0.0",
+  "description": "优化版的react-redux-webpack",
+  "author": "huangjianting",
+  "entry": {
+    "index": "./app/index.jsx",
+    "reacts": [
+      "react",
+      "react-dom",
+      "redux",
+      "react-router"
+    ]
+  },
+  "dependencies": {
+    "antd": "^2.13.3",
+    "atool-build": "^1.0.2",
+    "axios": "^0.16.2",
+    "babel-polyfill": "^6.26.0",
+    "qs": "^6.5.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.6",
+    "react-router": "^2.8.1",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "atool-build": "^1.0.2",
+    "babel-plugin-import": "^1.5.0",
+    "dora": "^0.4.5",
+    "dora-plugin-webpack": "^1.0.0",
+    "dora-plugin-webpack-hmr": "^0.2.1"
+  },
+  "scripts": {
+    "build": "atool-build",
+    "start": "dora --plugins \"webpack?disableNpmInstall,webpack-hmr\" --port 8008",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
