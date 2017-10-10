@@ -28,14 +28,20 @@
   },
   "devDependencies": {
     "atool-build": "^1.0.2",
+    "babel-eslint": "*",
     "babel-plugin-import": "^1.5.0",
     "dora": "^0.4.5",
     "dora-plugin-webpack": "^1.0.0",
-    "dora-plugin-webpack-hmr": "^0.2.1"
+    "dora-plugin-webpack-hmr": "^0.2.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
   },
   "scripts": {
     "build": "atool-build",
-    "start": "dora --plugins \"webpack?disableNpmInstall,webpack-hmr\" --port 8008",
+    "start": "dora --plugins \"webpack?disableNpmInstall,webpack-hmr\" --port 8009",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

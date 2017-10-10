@@ -1,0 +1,7 @@
+build/
+dist/
+node_modules/
+app.js
+proxy.config.js
+webpack.config.js
+mock/

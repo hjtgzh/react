@@ -1,0 +1,120 @@
+@import '../../less/config';
+
+.login-container {
+    width: 100%;
+    position: absolute;
+    // background: url('../../img/login-background.png') no-repeat;
+    height: calc(~'100% - 86px');
+    text-align: center;
+    margin: auto;
+}
+.login-content {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 490px;
+    height: 470px;
+    margin-top: -235px;
+    left: 50%;
+    margin-left: -245px;
+    background: @white;
+    border: 1px solid @light-blue;
+
+    .login-failed-content {
+        position: absolute;
+        margin-left: 35%;
+        line-height: 40px;
+        color: @error-color;
+        font-size: 16px;
+    }
+
+    .login-header {
+        font-size: @font-huge;
+        line-height: 60px;
+        background-color: @light-blue;
+        color: @white;
+    }
+    .login-form {
+        padding: 40px;
+        
+        .ant-form-item {
+            margin-bottom: 35px;
+
+            &:nth-child(4) {
+                margin-bottom: 0;
+            }
+
+            &.captcha-wrapper {
+                .has-success:after, .has-error:after {
+                    right: 85px;
+                }
+            }
+        }
+        .ant-form-item-control {
+            line-height: 55px;
+            text-align: left;
+
+            &:after {
+                line-height: 55px;
+            }
+            .ant-input-prefix {
+                left: 25px;
+                top: 45%;
+
+                .anticon {
+                    font-size: @font-large;
+                }
+            }
+            &.has-error {
+                .ant-form-explain {
+                    position: absolute;
+                }
+            }
+            input {
+                height: 50px;
+                font-size: @font-large;
+                padding-left: 60px;
+
+                &.validate {
+                    width: 78%;
+                }
+            }
+            button {
+                height: 50px;
+                width: 100%;
+                font-size: @font-huge;
+                background-color: @login-blue;
+                color: @white;
+
+                &.captcha {
+                    background-color: @white;
+                    color: @text-color;
+                    width: 85px;
+                    padding: 0;
+                    position: absolute;
+                    right: 0;
+                    border-radius: 0;
+                    
+                    &:hover, &:focus {
+                        border-color: @border-color;
+                    }
+                }
+            }
+        }
+    }
+    .login-footer {
+        .register, .forget-password {
+            display: inline-block;
+            width: 50%;
+            font-size: @font-big;
+        }
+        .register {
+            text-align: left;
+            color: @login-blue;
+        }
+        .forget-password {
+            text-align: right;
+            color: @average-gray;
+        }
+    }
+}

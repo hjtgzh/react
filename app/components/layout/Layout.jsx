@@ -1,12 +1,14 @@
-import React from 'react';
-import { withRouter, Link } from 'react-router';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Menu, message } from 'antd';
+import { Menu, icon } from 'antd';
 import { NAV_MENU } from './layoutConstant';
+import { switchNavMenu } from '../redux/actions/nav';
 
 const SubMenu = Menu.SubMenu;
-class Layout extends React.Component {
+
+class Layout extends Component {
     /**
      * 点击菜单时判断有无权限
      */
@@ -18,8 +20,11 @@ class Layout extends React.Component {
         // } else {
         //     this.props.router.push('/login');
         // }
+        this.props.switchNavMenu(e.key);
+        this.props.router.push(e.item.props.link);
     }
     render() {
+        const { current } = this.props;
         return (
             <div className="container-content">
                 <div className="navbar">
@@ -28,22 +33,22 @@ class Layout extends React.Component {
                             className="nav-menu"
                             mode="horizontal"
                             onClick={this.handleClick}
-                            defaultSelectedKeys={['10']}
+                            selectedKeys={[current]}
                         >
-                            <Menu.Item key={NAV_MENU.home}>首页</Menu.Item>
-                            <Menu.Item key={NAV_MENU.risklevel}>风险等级</Menu.Item>
+                            <Menu.Item key={NAV_MENU.home} link="home">首页</Menu.Item>
+                            <Menu.Item key={NAV_MENU.visualization} link="visualization">可视化</Menu.Item>
                             <Menu.Item key={NAV_MENU.suspicious}>可疑交易</Menu.Item>
                             <Menu.Item key={NAV_MENU.identity}>身份识别</Menu.Item>
                             <Menu.Item key={NAV_MENU.todo}>待处理任务</Menu.Item>
                             <SubMenu title="查询">
-                            <Menu.Item key={NAV_MENU.customer}>客户查询</Menu.Item>
-                            <Menu.Item key={NAV_MENU.event}>事件查询</Menu.Item>
-                            <Menu.Item key={NAV_MENU.task}>任务查询</Menu.Item>
-                            <Menu.Item key={NAV_MENU.rule}>规则查询</Menu.Item>
-                            <Menu.Item key={NAV_MENU.permission}>用户查询</Menu.Item>
-                        </SubMenu>
-                        <Menu.Item key={NAV_MENU.list} link="list">名单管理</Menu.Item>
-                        <Menu.Item key={NAV_MENU.template} link="template">模板中心</Menu.Item>
+                                <Menu.Item key={NAV_MENU.customer}>客户查询</Menu.Item>
+                                <Menu.Item key={NAV_MENU.event}>事件查询</Menu.Item>
+                                <Menu.Item key={NAV_MENU.task}>任务查询</Menu.Item>
+                                <Menu.Item key={NAV_MENU.rule}>规则查询</Menu.Item>
+                                <Menu.Item key={NAV_MENU.permission}>用户查询</Menu.Item>
+                            </SubMenu>
+                            <Menu.Item key={NAV_MENU.list} link="list">名单管理</Menu.Item>
+                            <Menu.Item key={NAV_MENU.template} link="template">模板中心</Menu.Item>
                         </Menu>
                     </div>
                 </div>
@@ -53,8 +58,12 @@ class Layout extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ });
+const mapStateToProps = state => ({ 
+    current: state.navQuery.current
+ });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ 
+    switchNavMenu
+ }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout));
