@@ -7,8 +7,8 @@ module.exports = function (webpackConfig, env) {
     webpackConfig.plugins.some(function (plugin, i) {
         if (plugin instanceof webpack.optimize.CommonsChunkPlugin) {
             webpackConfig.plugins.splice(i, 1, new webpack.optimize.CommonsChunkPlugin({
-                names: ['reacts'],
-                minChunks: 2
+                names: ['charts', 'util', 'reacts'], //顺序不能改变，否则会报错
+                minChunks: 3
             }));
             return true;
         }

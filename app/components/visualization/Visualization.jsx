@@ -2,33 +2,69 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Table } from 'antd';
-import { fetchHomeList } from '../redux/actions/home';
-import { switchNavMenu } from '../redux/actions/nav'
+import './style.less';
+import _ from 'lodash';
+import ProgressArc from './ProgressArc';
 
+const data = {
+    北京: Math.random(),
+    上海: Math.random(),
+    广州: Math.random(),
+    深圳: Math.random(),
+    杭州: Math.random()
+};
+ 
 class Visualization extends Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount() {
-        this.props.switchNavMenu('2');
-    }
+    getStyles = () => {
+        return {
+            width: 180,
+            height: 180,
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            backgroundColor: '#ffffff',
+            boxShadow: '0 0 5px rgba(25, 25, 25, 0.25)',
+        };
+    };
     render() {
         return (
-            <div className="visualization-content">
-                可视化页面
+            <div className="summary">
+                {_.map(data, (value, key) => {
+                    let percentage;
+                    if (value > 1) {
+                        percentage = 1;
+                    } else if (value < 0) {
+                        percentage = 0;
+                    } else {
+                        percentage = value;
+                    }
+                    return (
+                        <div className="titeItem" style={this.getStyles()} key={key}>
+                            <ProgressArc
+                                data={{
+                                    value: percentage,
+                                    text: key
+                                }}
+                                arcID={`test--svg--${key}`}
+                                height={140}
+                                width={140}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         );
     }
 }
-
+  
 const mapStateToProps = state => ({ 
-    homeListData: state.homeQuery.homeListData,
- });
+
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({ 
-    fetchHomeList,
-    switchNavMenu
- }, dispatch);
+    
+}, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Visualization));
