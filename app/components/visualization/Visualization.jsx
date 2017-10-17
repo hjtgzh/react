@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './style.less';
 import _ from 'lodash';
 import ProgressArc from './ProgressArc';
+import { switchNavMenu } from '../redux/actions/nav';
 
 const data = {
     北京: Math.random(),
@@ -15,6 +16,9 @@ const data = {
 };
  
 class Visualization extends Component {
+    componentDidMount() {
+        this.props.switchNavMenu('2');
+    }
     getStyles = () => {
         return {
             width: 180,
@@ -64,7 +68,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ 
-    
+    switchNavMenu
 }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Visualization));

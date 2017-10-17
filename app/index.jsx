@@ -14,7 +14,8 @@ import store from './store';
 import Layout from './components/layout/Layout';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
-import visualization from './components/visualization/Visualization'
+import Visualization from './components/visualization/Visualization';
+import Test from './components/visualization/Test';
 
 const requireAuth = (nextState, replace, cb) => {
     replace({
@@ -30,7 +31,8 @@ render(
                 {/* <IndexRoute onEnter={requireAuth} component={Home}/> */}
                 <IndexRoute component={Home}/>
                 <Route path="home" component={Home} />
-                <Route path="visualization" component={visualization} />
+                <Route path="visualization" component={Visualization} />
+                <Route path="test" component={Test} />
             </Route>
             <Route path="login" component={Login} />
         </Router>
