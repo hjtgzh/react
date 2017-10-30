@@ -2,7 +2,7 @@ export const NAV_MENU = {
     home: '1',
     visualization: '2',
     test: '3',
-    rule: '4',
+    chart: '4',
     permission: '5',
     list: '6',
     template: '7',

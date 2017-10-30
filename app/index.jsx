@@ -16,6 +16,7 @@ import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Visualization from './components/visualization/Visualization';
 import Test from './components/visualization/Test';
+import Chart from './components/visualization/Chart';
 
 const requireAuth = (nextState, replace, cb) => {
     replace({
@@ -33,6 +34,7 @@ render(
                 <Route path="home" component={Home} />
                 <Route path="visualization" component={Visualization} />
                 <Route path="test" component={Test} />
+                <Route path="chart" component={Chart} />
             </Route>
             <Route path="login" component={Login} />
         </Router>
