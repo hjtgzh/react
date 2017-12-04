@@ -13,61 +13,19 @@ class Visualization extends Component {
         this.props.switchNavMenu('4');
 
         const data = [
-            { id: 'flare', value: '' },
-            { id: 'flare.analytics', value: '' },
-            { id: 'flare.analytics.cluster', value: '' },
-            { id: 'flare.analytics.cluster.AgglomerativeCluster', value: '3938' },
-            { id: 'flare.analytics.cluster.CommunityStructure', value: '3812' },
-            { id: 'flare.analytics.cluster.HierarchicalCluster', value: '6714' },
-            { id: 'flare.analytics.cluster.MergeEdge', value: '743' },
-            { id: 'flare.analytics.graph', value: '' },
-            { id: 'flare.analytics.graph.BetweennessCentrality', value: '3534' },
-            { id: 'flare.analytics.graph.LinkDistance', value: '5731' },
-            { id: 'flare.analytics.graph.MaxFlowMinCut', value: '7840' },
-            { id: 'flare.analytics.graph.ShortestPaths', value: '5914' },
-            { id: 'flare.analytics.graph.SpanningTree', value: '3416' },
-            // { id: 'flare.analytics.optimization', value: '' },
-            // { id: 'flare.analytics.optimization.AspectRatioBanker', value: '7074' },
-            // { id: 'flare.animate', value: '' },
-            // { id: 'flare.animate.Easing', value: '17010' },
-            // { id: 'flare.animate.FunctionSequence', value: '5842' },
-            // { id: 'flare.animate.interpolate', value: '' },
-            // { id: 'flare.animate.interpolate.ArrayInterpolator', value: '1983' },
-            // { id: 'flare.animate.interpolate.ColorInterpolator', value: '2047' },
-            // { id: 'flare.animate.interpolate.DateInterpolator', value: '1375' },
-            // { id: 'flare.animate.interpolate.Interpolator', value: '8746' },
-            // { id: 'flare.animate.interpolate.MatrixInterpolator', value: '2202' },
-            // { id: 'flare.animate.interpolate.NumberInterpolator', value: '1382' },
-            // { id: 'flare.animate.interpolate.ObjectInterpolator', value: '1629' },
-            // { id: 'flare.animate.interpolate.PointInterpolator', value: '1675' },
-            // { id: 'flare.animate.interpolate.RectangleInterpolator', value: '2042' },
-            // { id: 'flare.animate.ISchedulable', value: '1041' },
-            // { id: 'flare.animate.Parallel', value: '5176' },
-            // { id: 'flare.animate.Pause', value: '449' },
-            // { id: 'flare.animate.Scheduler', value: '5593' },
-            // { id: 'flare.animate.Sequence', value: '5534' },
-            // { id: 'flare.animate.Transition', value: '9201' },
-            // { id: 'flare.animate.Transitioner', value: '19975' },
-            // { id: 'flare.animate.TransitionEvent', value: '1116' },
-            // { id: 'flare.animate.Tween', value: '6006' },
-            // { id: 'flare.data', value: '' },
-            // { id: 'flare.data.converters', value: '' },
-            // { id: 'flare.data.converters.Converters', value: '721' },
-            // { id: 'flare.data.converters.DelimitedTextConverter', value: '4294' },
-            // { id: 'flare.data.converters.GraphMLConverter', value: '9800' },
-            // { id: 'flare.data.converters.IDataConverter', value: '1314' },
-            // { id: 'flare.data.converters.JSONConverter', value: '2220' },
-            // { id: 'flare.data.DataField', value: '1759' },
-            // { id: 'flare.data.DataSchema', value: '2165' },
-            // { id: 'flare.data.DataSet', value: '586' },
-            // { id: 'flare.data.DataSource', value: '3331' },
-            // { id: 'flare.data.DataTable', value: '772' },
-            // { id: 'flare.data.DataUtil', value: '3322' },
-            // { id: 'flare.display', value: '' },
-            // { id: 'flare.display.DirtySprite', value: '8833' },
-            // { id: 'flare.display.LineSprite', value: '1732' },
-            // { id: 'flare.display.RectSprite', value: '3623' },
-            // { id: 'flare.display.TextSprite', value: '10066' }
+            { id: '世界', value: '' },
+            { id: '世界-中国', value: '' },
+            { id: '世界-中国-浙江', value: '' },
+            { id: '世界-中国-浙江-杭州', value: '3938' },
+            { id: '世界-中国-浙江-宁波', value: '3812' },
+            { id: '世界-中国-浙江-温州', value: '6714' },
+            { id: '世界-中国-浙江-绍兴', value: '743' },
+            { id: '世界-中国-河南', value: '' },
+            { id: '世界-中国-河南-郑州', value: '3534' },
+            { id: '世界-中国-河南-商丘', value: '5731' },
+            { id: '世界-中国-河南-洛阳', value: '7840' },
+            { id: '世界-中国-河南-开封', value: '5914' },
+            { id: '世界-中国-河南-永城', value: '3416' }
         ];
 
         const width = 800;
@@ -82,20 +40,20 @@ class Visualization extends Component {
         const g = svg.append('g')
             .attr('transform', 'translate(40,0)');
 
-        // 布局保存在变量cluster中，变量cluster可用于转换数据，size()设定尺寸，即转换后的各节点的坐标在哪一个范围内
-        const cluster = d3.cluster()
+        // 布局保存在变量浙江中，变量浙江可用于转换数据，size()设定尺寸，即转换后的各节点的坐标在哪一个范围内
+        const 浙江 = d3.cluster() // 效果和 d3.tree() 一样
             .size([height, width - 160]);
     
         const stratify = d3.stratify()
-            .parentId(d => d.id.substring(0, d.id.lastIndexOf('.')));
-
-        // 数据排序（正序）？
+            .parentId(d => d.id.substring(0, d.id.lastIndexOf('-')));
+        
+        // 数据排序（正序）
         const root = stratify(data)
             .sort((a, b) => (a.height - b.height) || a.id.localeCompare(b.id));
-        
-        // cluster转换数据
-        cluster(root);
-        
+
+        // 浙江转换数据
+        浙江(root);
+
         // 节点间的曲线
         const link = g.selectAll('.link')
             .data(root.descendants().slice(1))
@@ -121,7 +79,7 @@ class Visualization extends Component {
             .attr('dy', 3)
             .attr('x', (d) => { return d.children ? -8 : 8; })
             .style('text-anchor', (d) => { return d.children ? 'end' : 'start'; })
-            .text(d => d.id.substring(d.id.lastIndexOf('.') + 1));
+            .text(d => d.id.substring(d.id.lastIndexOf('-') + 1));
     }
     render() {
         return (
