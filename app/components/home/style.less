@@ -1,0 +1,23 @@
+@import '../../less/config';
+.home-content{
+    padding: 10px 20px;
+    .ant-carousel {
+        .slick-slide{
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 100px;
+                cursor: pointer;
+            }
+        }
+        .slick-dots{
+            li{
+                button{
+                    background: @gray;
+                }
+            }
+        }
+    }
+}

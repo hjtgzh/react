@@ -39,16 +39,12 @@ class Layout extends Component {
                             <Menu.Item key={NAV_MENU.visualization} link="visualization">可视化</Menu.Item>
                             <Menu.Item key={NAV_MENU.test} link="test">测试</Menu.Item>
                             <Menu.Item key={NAV_MENU.chart} link="chart">可视化图案例</Menu.Item>
-                            <Menu.Item key={NAV_MENU.todo}>待处理任务</Menu.Item>
-                            <SubMenu title="查询">
-                                <Menu.Item key={NAV_MENU.customer}>客户查询</Menu.Item>
-                                <Menu.Item key={NAV_MENU.event}>事件查询</Menu.Item>
-                                <Menu.Item key={NAV_MENU.task}>任务查询</Menu.Item>
-                                <Menu.Item key={NAV_MENU.rule}>规则查询</Menu.Item>
-                                <Menu.Item key={NAV_MENU.permission}>用户查询</Menu.Item>
+                            <Menu.Item key={NAV_MENU.list} link="list">列表测试</Menu.Item>
+                            <SubMenu title="搜索">
+                                <Menu.Item key={NAV_MENU.customer}>搜索1</Menu.Item>
+                                <Menu.Item key={NAV_MENU.event}>搜索2</Menu.Item>
+                                <Menu.Item key={NAV_MENU.task}>搜索3</Menu.Item>
                             </SubMenu>
-                            <Menu.Item key={NAV_MENU.list} link="list">名单管理</Menu.Item>
-                            <Menu.Item key={NAV_MENU.template} link="template">模板中心</Menu.Item>
                         </Menu>
                     </div>
                 </div>
