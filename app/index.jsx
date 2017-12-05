@@ -15,7 +15,7 @@ import Layout from './components/layout/Layout';
 import Home from './components/home/Home';
 import Grid from './components/grid/Grid';
 import Login from './components/login/Login';
-import Test from './components/visualization/Test';
+import Form from './components/form/Form';
 import Chart from './components/visualization/Chart';
 import List from './components/list/List';
 
@@ -34,7 +34,7 @@ render(
                 <IndexRoute component={Home}/>
                 <Route path="home" component={Home} />
                 <Route path="grid" component={Grid} />
-                <Route path="test" component={Test} />
+                <Route path="form" component={Form} />
                 <Route path="chart" component={Chart} />
                 <Route path="list" component={List} />
             </Route>

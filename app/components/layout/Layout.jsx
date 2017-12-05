@@ -37,7 +37,7 @@ class Layout extends Component {
                         >
                             <Menu.Item key={NAV_MENU.home} link="home">首页</Menu.Item>
                             <Menu.Item key={NAV_MENU.grid} link="grid">栅格布局</Menu.Item>
-                            <Menu.Item key={NAV_MENU.test} link="test">测试</Menu.Item>
+                            <Menu.Item key={NAV_MENU.form} link="form">表单</Menu.Item>
                             <Menu.Item key={NAV_MENU.chart} link="chart">可视化图案例</Menu.Item>
                             <Menu.Item key={NAV_MENU.list} link="list">列表测试</Menu.Item>
                             <SubMenu title="搜索">

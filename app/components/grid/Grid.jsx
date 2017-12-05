@@ -7,7 +7,7 @@ import _ from 'lodash';
 import ProgressArc from './ProgressArc';
 import { switchNavMenu } from '../redux/actions/nav';
 import { fetchHomeList } from '../redux/actions/home';
-import { Row, Col, Input, Table } from 'antd';
+import { Row, Col, Input, Table, Button, Icon } from 'antd';
 
 const Search = Input.Search;
 const data = {
@@ -18,6 +18,13 @@ const data = {
 };
  
 class Visualization extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            btShow: false
+        };
+    }
 
     componentDidMount() {
         this.props.fetchHomeList();
@@ -100,6 +107,15 @@ class Visualization extends Component {
         return {
             onChange: (selectedRowKeys, selectedRows) => {
                 console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+                if (selectedRows.length > 0) {
+                    this.setState({
+                        btShow: true
+                    });
+                } else {
+                    this.setState({
+                        btShow: false
+                    });
+                }
             },
             getCheckboxProps: record => ({
                 disabled: record.name === '赵六', // 设置不能选择的条目 
@@ -153,6 +169,19 @@ class Visualization extends Component {
                         expandedRowRender={record => <div>{record.description}</div>}
                         loading={loading}
                     />
+                    {
+                        this.state.btShow ? 
+                            <div className="btWrap">
+                                <Button type="primary">
+                                    <a
+                                        download="下载"
+                                        href="http://attach-ment.oss-cn-shanghai.aliyuncs.com/template/custom.csv"
+                                    >
+                                        <Icon type="download" />下载
+                                    </a>
+                                </Button>
+                            </div> : null
+                    }
                 </div>
             </div>
         );
