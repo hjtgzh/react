@@ -37,6 +37,11 @@ class Home extends Component {
                             <img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=ce79769a30f33a879e6d071cfe677705/34fae6cd7b899e5114f3cfbe48a7d933c8950d1e.jpg" title="QQ"/>
                         </Link>
                     </div>
+                    <div className="cardItem">
+                        <Link href="https://baike.baidu.com/item/%E4%B9%9D%E5%B7%9E%C2%B7%E6%B5%B7%E4%B8%8A%E7%89%A7%E4%BA%91%E8%AE%B0/18558448?fr=aladdin&fromid=16742894&fromtitle=%E6%B5%B7%E4%B8%8A%E7%89%A7%E4%BA%91%E8%AE%B0">
+                            <img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/h%3D250/sign=63f3c5378fd6277ff612353d183a1f63/500fd9f9d72a6059c1dfb0962034349b023bba6b.jpg" title="九州·海上牧云记"/>
+                        </Link>
+                    </div>
                 </Carousel>
             </div>
         );

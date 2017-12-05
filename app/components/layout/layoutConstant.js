@@ -1,6 +1,6 @@
 export const NAV_MENU = {
     home: '1',
-    visualization: '2',
+    grid: '2',
     test: '3',
     chart: '4',
     list: '5',

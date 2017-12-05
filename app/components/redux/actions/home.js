@@ -5,10 +5,10 @@ import { MockPath } from '../../../config';
 import { fetchMock } from '../fetchData';
 
 const fetchHomeListSuccess = createAction('FETCH_HOME_LIST_SUCCESS');
-export const fetchHomeList = () => async (dispatch) => {
+export const fetchHomeList = keyWords => async (dispatch) => {
     try {
         const url = `${MockPath}/home/list`;
-        const response = await fetchMock(url);
+        const response = await fetchMock(url, { keyWords });
         if (response.data.success) {
             dispatch(fetchHomeListSuccess({ result: response.data.result }));
         } else {
