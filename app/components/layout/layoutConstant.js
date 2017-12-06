@@ -3,7 +3,7 @@ export const NAV_MENU = {
     grid: '2',
     menu: '3',
     chart: '4',
-    card: '5',
+    tabs: '5',
     // list: '6',
     template: '7',
     general: '8',

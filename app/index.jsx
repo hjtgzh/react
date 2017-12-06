@@ -20,7 +20,7 @@ import Form from './components/menu/Form';
 import Steps from './components/menu/Steps';
 import Calendar from './components/menu/Calendar';
 import Chart from './components/visualization/Chart';
-import Card from './components/card/Card';
+import Tabs from './components/tabs/Tabs';
 
 const requireAuth = (nextState, replace, cb) => {
     replace({
@@ -43,7 +43,7 @@ render(
                     <Route path="calendar" component={Calendar} />
                 </Route>
                 <Route path="chart" component={Chart} />
-                <Route path="card" component={Card} />
+                <Route path="tabs" component={Tabs} />
             </Route>
             <Route path="login" component={Login} />
         </Router>
