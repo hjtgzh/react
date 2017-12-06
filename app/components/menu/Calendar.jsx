@@ -11,6 +11,6 @@ const CalendarContent = () => {
             <Calendar onPanelChange={onPanelChange} />
         </div>
     );
-}
+};
 
 export default CalendarContent;
