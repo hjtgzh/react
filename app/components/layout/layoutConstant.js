@@ -1,7 +1,7 @@
 export const NAV_MENU = {
     home: '1',
     grid: '2',
-    form: '3',
+    menu: '3',
     chart: '4',
     list: '5',
     // list: '6',

@@ -1,0 +1,55 @@
+@import '../../less/config';
+.page-content{
+    display: flex;
+    // height: calc(~'100% - 50px');
+    position: relative;
+    top: 50px;
+    .left-nav{
+        width: 15%;
+        position: fixed;
+        .ant-menu-inline{
+            background: @white;
+        }
+        .ant-menu-item-selected{
+            background: @hover-gray;
+        }
+        .collapsed-wrap {
+            background: @hover-gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            cursor: pointer;
+        }
+        .collapsed{
+            width: 64px;
+        }
+    }
+    .right-content{
+        width: 85%;
+        margin-left: 15%;
+        .steps-wrap {
+            padding: 20px;
+            .steps-content {
+                margin-top: 16px;
+                border: 1px dashed #e9e9e9;
+                border-radius: 6px;
+                background-color: #fafafa;
+                min-height: 200px;
+                text-align: center;
+                padding-top: 80px;
+            }
+            .steps-action {
+                margin-top: 24px;
+            }
+        }
+    }
+    .right-content.collapsed{
+        width: calc(~'85% + 64px');
+        margin-left: 64px;
+    }
+    .form-wrap {
+        padding-top: 20px;
+        width: 50%;
+    }
+}
