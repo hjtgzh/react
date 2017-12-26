@@ -45,8 +45,11 @@ class FormContent extends Component {
             confirmDirty: false,
             autoCompleteResult: [],
             collapsed: false,
-            activeMenu: 'form'
+            activeMenu: 'form',
+            captchaTime: 60
         };
+        this.captchaBT = false;
+        this.intervalId = null;
     }
 
     componentDidMount() {
@@ -110,6 +113,43 @@ class FormContent extends Component {
             activeMenu: item.key
         });
     }
+
+    // 获取验证码效果处理
+    getCaptcha = () => {
+        this.captchaBT = true;
+        clearInterval(this.intervalId);
+        // 用setInterval方法
+        this.intervalId = setInterval(() => {
+            this.setState({
+                captchaTime: this.state.captchaTime - 1
+            });
+            if (this.state.captchaTime <= 0) {
+                clearInterval(this.intervalId);
+                this.captchaBT = false;
+                this.setState({
+                    captchaTime: 60
+                });
+            }
+        }, 1000);
+
+        // 用setTimeout方法
+        // const _this = this;
+        // this.intervalId = setTimeout(function fn() {
+        //     if (_this.state.captchaTime >= 0) {
+        //         _this.setState({
+        //             captchaTime: _this.state.captchaTime - 1
+        //         });
+        //         setTimeout(fn, 1000);
+        //     } else {
+        //         clearInterval(_this.intervalId);
+        //         _this.captchaBT = false;
+        //         _this.setState({
+        //             captchaTime: 60
+        //         });
+        //     }
+        // }, 1000);
+    }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
@@ -264,7 +304,7 @@ class FormContent extends Component {
                                 )}
                             </Col>
                             <Col span={12}>
-                                <Button>获取验证码</Button>
+                                <Button disabled={this.captchaBT} onClick={this.getCaptcha}>{this.state.captchaTime < 60 && this.state.captchaTime > 0 ? `${this.state.captchaTime}后重新获取验证码` : '获取验证码'}</Button>
                             </Col>
                         </Row>
                     </FormItem>
