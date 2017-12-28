@@ -25,7 +25,7 @@ class Visualization extends Component {
         const svg = d3.select('.summary')
             .append('svg')
             .attr('width', width)
-            .attr('height', height);
+            .attr('height', height); 
             
         const format = d3.format(',d'); // 把数据计数方式格式化，转化为带逗号 x,xxx 的格式
         
@@ -54,7 +54,6 @@ class Visualization extends Component {
             .enter()
             .append('g')
             .attr('transform', d => `translate(${d.x},${d.y})`)
-            // .attr('class', function(d) { return 'node' + (!d.children ? ' node--leaf' : d.depth ? '' : ' node--root'); })
             .each(function(d) { d.node = this; })
             .on('mouseover', this.hovered(true))
             .on('mouseout', this.hovered(false));
