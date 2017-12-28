@@ -20,6 +20,7 @@ import Form from './components/menu/Form';
 import Steps from './components/menu/Steps';
 import Calendar from './components/menu/Calendar';
 import Chart from './components/visualization/Chart';
+// import Chart from './components/visualization/Test';
 import Tabs from './components/tabs/Tabs';
 
 const requireAuth = (nextState, replace, cb) => {

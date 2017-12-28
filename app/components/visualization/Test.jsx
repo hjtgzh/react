@@ -1,3 +1,4 @@
+// 柱形图（包含比例尺，刻度）
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
@@ -9,7 +10,7 @@ const d3 = require('d3');
 
 class Visualization extends Component {
     componentDidMount() {
-        this.props.switchNavMenu('3');
+        this.props.switchNavMenu('4');
 
         const width = 300;  // 画布的宽度
         const height = 300;   // 画布的高度
@@ -44,7 +45,6 @@ class Visualization extends Component {
 
         // 矩形之间的空白
         const rectPadding = 4;
-
         // 添加矩形元素
         const rects = svg.selectAll('.MyRect') // 将要添加的元素
             .data(dataset)
@@ -52,10 +52,6 @@ class Visualization extends Component {
             .append('rect')
             .attr('transform', `translate(${padding.left},${padding.top})`)
             .attr('x', (d, i) => xScale(i) + rectPadding / 2)
-            .attr('y', () => {
-                const min = yScale.domain()[0];
-                return yScale(min);
-            })
             // .transition()               // 启动过渡
             // .delay((d, i) => 1000 * i)
             // .duration(1000)
