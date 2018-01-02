@@ -21,7 +21,7 @@ class MenuContent extends Component {
 
     componentDidMount() {
         this.props.switchNavMenu('3');
-        this.props.router.push('/menu/form');
+        this.props.router.push('/menu/steps');
     }
 
     toggleCollapsed = () => {
@@ -38,18 +38,18 @@ class MenuContent extends Component {
             <div className="page-content">
                 <div className="left-nav">
                     <Menu
-                        defaultSelectedKeys={['form']}
+                        defaultSelectedKeys={['steps']}
                         mode="inline"
                         inlineCollapsed={this.state.collapsed}
                         onClick={this.menuClick}
                     >
-                        <Menu.Item key="form">
-                            <Icon type="pie-chart" />
-                            <span>form</span>
-                        </Menu.Item>
                         <Menu.Item key="steps">
                             <Icon type="desktop" />
                             <span>steps</span>
+                        </Menu.Item>
+                        <Menu.Item key="form">
+                            <Icon type="pie-chart" />
+                            <span>form</span>
                         </Menu.Item>
                         <Menu.Item key="calendar">
                             <Icon type="inbox" />

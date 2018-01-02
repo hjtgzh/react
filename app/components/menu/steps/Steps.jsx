@@ -3,15 +3,16 @@ import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './style.less';
-import { switchNavMenu } from '../redux/actions/nav';
+import { switchNavMenu } from '../../redux/actions/nav';
 import { Steps, Button, message } from 'antd';
+import FirstStep from './FirstStep';
 
 const Step = Steps.Step;
 
 const steps = [
     {
         title: 'First',
-        content: 'First-content',
+        content: <FirstStep />,
     }, {
         title: 'Second',
         content: 'Second-content',
